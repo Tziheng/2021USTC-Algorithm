@@ -28,7 +28,7 @@ void getfromfile(char A[],char B[], int *n){
 char o[1024];
 int sum;
 void DFS(int m,int n){
-    if(m == 0 || n == 0){
+    if(ct[m][n] == 0){
         fprintf(ofp,"%s\n",o+1);
         sum ++;
         return;
