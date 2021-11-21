@@ -1,36 +1,24 @@
-#include <string.h>
-
-int c[1024][1024] ;
-char b[1024][1024] ;
-
-int x,y;
-char *X,*Y;
-
-void deliver(int *xt,int *yt,int (**ct)[1024],char (**bt)[1024],char **Xt,char **Yt){
-    *xt = x;
-    *yt = y;
-    *ct = c;
-    *bt = b;
-    *Xt = X;
-    *Yt = Y;
+#include "algorithm.h"
+OPT opt;
+void Initialization(char* strX, int X_length, char* strY, int Y_length) {
+    opt.x = X_length;
+    opt.X = strX - 1;
+    opt.y = Y_length;
+    opt.Y = strY - 1;
+    for (int i = 0; i <= opt.x; ++i) opt.c[i][0] = 0; 
+    for (int j = 0; j <= opt.y; ++j) opt.c[0][j] = 0;
 }
-
-int Dynamic(char *strX,int X_length,char *strY,int Y_length){
-    x = X_length;X = strX - 1;
-    y = Y_length;Y = strY - 1;
-    for(int i = 1; i <= x; ++i){
-        for(int j = 1; j <= y; ++j){
-            if(X[i] == Y[j]){
-                c[i][j] = c[i-1][j-1] + 1;
-                b[i][j] = 0;
-            }else if(c[i-1][j] >= c[i][j-1]){
-                c[i][j] = c[i-1][j];
-                b[i][j] = 1;
-            }else{
-                c[i][j] = c[i][j-1];
-                b[i][j] = 1;
+OPT Dynamic(char* strX, int X_length, char* strY, int Y_length) {
+    Initialization(strX, X_length, strY, Y_length);
+    for (int i = 1; i <= opt.x; ++i)
+        for (int j = 1; j <= opt.y; ++j) 
+            if (opt.X[i] == opt.Y[j]) {
+                opt.c[i][j] = opt.c[i - 1][j - 1] + 1;
+                opt.b[i][j] = 0;
             }
-        }
-    }
-    return c[x][y];
+            else {
+                opt.b[i][j] = 1;
+                opt.c[i][j] = opt.c[i - 1][j] >= opt.c[i][j - 1] ? opt.c[i - 1][j] : opt.c[i][j - 1];
+            }
+    return opt;
 }

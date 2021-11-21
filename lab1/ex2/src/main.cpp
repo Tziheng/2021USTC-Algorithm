@@ -1,20 +1,13 @@
 #include "main.h"
-#include <stdio.h>
-
-int main(){
+int main() {
     int n;
-    char A[100];
-    char B[100];
+    char A[65536], B[65536];
     start();
-    while(next()){
-        getfromfile(A,B,&n);
-        printf("\nstart\n");
-        Dynamic(A,n,B,n);
-        printf("dynamic end\n");
-        prtToFile();
+    while (next()) {
+        getFromFile(A, B, &n);
+//        for(int i = 0; i < 100000; i++)Dynamic(A, n, B, n); // 运行100,000次
+        prtToFile(Dynamic(A, n, B, n));
     }
     end();
-    while(1);
     return 0;
-    
 }
