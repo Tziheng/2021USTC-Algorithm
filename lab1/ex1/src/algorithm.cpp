@@ -1,5 +1,5 @@
 #include "algorithm.h"
-#include <stdlib.h>
+#include <climits>
 OPT opt;
 long long *minc(int i,int j){ 
     return opt.m + (2*opt.N-1-i)*i/2+j;
