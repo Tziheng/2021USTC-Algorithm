@@ -1,0 +1,8 @@
+../input/input11.txt 27
+../input/input12.txt 27
+../input/input21.txt 81
+../input/input22.txt 81
+../input/input31.txt 243
+../input/input32.txt 243
+../input/input41.txt 729
+../input/input42.txt 729
