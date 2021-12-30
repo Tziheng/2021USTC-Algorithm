@@ -1,12 +1,12 @@
 #include "main.h"
-
 int main(){
-    Graph *g = 0;
+    Graph * g = NULL;
     start();
     while (next()){
         g = creatGraph(g);
-        getFromFile(g,&g->VN,&addEdge);
-        BellmanFord(g,0);
+        getFromFile(g,&g->VN);
+        BellmanFord(g,0,&weight);
+        printg(g);
         write2File(g->VN,&warFinding);
     }
     end();

@@ -22,7 +22,9 @@ typedef struct sparseGraph{
 
 Graph* creatGraph(Graph *g);
 void addEdge(Graph *g,int head,int tail,int weight);
-void printg(Graph *g);
 int weight(Graph*g,int u,int v);
 Graph * copyg(Graph *g);
+
+//void printg(Graph *g);
+
 #endif
