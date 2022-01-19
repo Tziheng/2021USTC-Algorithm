@@ -1,5 +1,5 @@
 # 2021USTC-Algorithm
-USTC算法基础实验课源码分享
+USTC算法基础实验课
 
 子衡
 
